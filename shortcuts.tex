@@ -1,9 +1,16 @@
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{physics}
+
 % Number sets
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
-
 
 % Probability shortcuts
 \newcommand{\G}{\mathcal G}
@@ -22,9 +29,25 @@
 \newcommand{\convp}{\overset{\pr}{\longrightarrow}}
 \newcommand{\iid}{\overset{iid}{\sim}}
 \newcommand{\ddfrac}[2]{\frac{\displaystyle #1}{\displaystyle #2}}
-\newcommand{\expec}[1]{\mathbb E \left[#1\right]}
-\newcommand{\expectwo}[1]{\mathbb E \left[\left(#1\right)^2\right]}
-\newcommand{\conde}[2]{\mathbb E \left[#1\mid #2\right]}
+% https://tex.stackexchange.com/questions/713353/specialize-behaviors-of-super-and-subscript-for-self-defined-commands/713355?noredirect=1#comment1772997_713355
+\NewDocumentCommand{\expec}{e{_^}m}{%
+    \mathbb{E}%
+    \IfNoValueF{#1}{_{#1}}%
+    \IfNoValueF{#2}{^{#2}}%
+    \sqbrackets{#3}
+}
+\NewDocumentCommand{\expectwo}{e{_^}m}{%
+    \mathbb{E}%
+    \IfNoValueF{#1}{_{#1}}%
+    \IfNoValueF{#2}{^{#2}}%
+    \sqbrackets{\parenthesis{#3}^2}
+}
+\NewDocumentCommand{\conde}{e{_^}mm}{%
+    \mathbb{E}%
+    \IfNoValueF{#1}{_{#1}}%
+    \IfNoValueF{#2}{^{#2}}%
+    \sqbrackets{#3\mid #4}
+}
 
 % Brackets
 \newcommand{\parenthesis}[1]{\left(#1\right)}
