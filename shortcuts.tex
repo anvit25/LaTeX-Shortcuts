@@ -4,58 +4,60 @@
 \usepackage{amsfonts}
 \usepackage{mathrsfs}
 \usepackage{mathtools}
-\usepackage{physics}
+\usepackage{physics2}
+\usephysicsmodule{ab}
 
 % Number sets
 \newcommand{\N}{\mathbb{N}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
 
 % Probability shortcuts
-\newcommand{\G}{\mathcal G}
-\newcommand{\Fsig}{\mathcal F}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\F}{\mathcal{F}}
 \newcommand{\B}{\mathcal{B}} % Borel sigma algebra
-\newcommand{\E}{\mathbb{E}}
-\newcommand{\pr}{\mathbb{P}}
-\newcommand{\F}{\mathscr{F}}
-\newcommand{\Var}{\mathrm{Var}}
-\newcommand{\Cov}{\mathrm{Cov}}
-\newcommand{\Bias}{\mathrm{Bias}}
-\newcommand{\indep}{\perp \!\!\! \perp}
-\newcommand{\eqd}{\overset{\mathcal D}{=}}
+
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\pr}{\mathbb{P}}
+\DeclareMathOperator{\var}{\mathbf{V}}
+\DeclareMathOperator{\cov}{\mathbf{C}}
+
+\newcommand{\indep}{\mathbin{\perp \negthickspace\negthickspace \perp}}
+% \newcommand{\eqd}{\overset{\mathcal D}{=}}‌
+\newcommand{\eqd}{\overset{\mathcal{D}}{=}}
 \newcommand{\convd}{\overset{\mathcal D}{\longrightarrow}}
-\newcommand{\convas}{\overset{a.s.}{\longrightarrow}}
+\newcommand{\convas}{\overset{\textrm{a.s.}}{\longrightarrow}}
 \newcommand{\convp}{\overset{\pr}{\longrightarrow}}
 \newcommand{\iid}{\overset{iid}{\sim}}
 \newcommand{\ddfrac}[2]{\frac{\displaystyle #1}{\displaystyle #2}}
 % https://tex.stackexchange.com/questions/713353/specialize-behaviors-of-super-and-subscript-for-self-defined-commands/713355?noredirect=1#comment1772997_713355
-\NewDocumentCommand{\expec}{e{_^}m}{%
+\NewDocumentCommand{\expec}{e{_^}}{%
     \mathbb{E}%
     \IfNoValueF{#1}{_{#1}}%
     \IfNoValueF{#2}{^{#2}}%
-    \sqbrackets{#3}
+    \ab
 }
 \NewDocumentCommand{\expectwo}{e{_^}m}{%
     \mathbb{E}%
     \IfNoValueF{#1}{_{#1}}%
     \IfNoValueF{#2}{^{#2}}%
-    \sqbrackets{\parenthesis{#3}^2}
+    \bab{\pab{#3}^2}
 }
 \NewDocumentCommand{\conde}{e{_^}mm}{%
     \mathbb{E}%
     \IfNoValueF{#1}{_{#1}}%
     \IfNoValueF{#2}{^{#2}}%
-    \sqbrackets{#3\mid #4}
+    \bab{#3\mid #4}
 }
 
-% Brackets
-\newcommand{\parenthesis}[1]{\left(#1\right)}
-\newcommand{\sqbrackets}[1]{\left[#1\right]}
-\newcommand{\curly}[1]{\left\{#1\right\}}
-\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\newcommand{\inner}{\aab}
+\newcommand{\abs}{\vab}
+\newcommand{\norm}{\Vab}
 \newcommand{\argmod}[2]{\underset{#2}{\arg \, #1}}
 
 \renewcommand{\O}{\mathcal{O}}
 \newcommand{\I}{\mathbb I}
-\newcommand{\one}{\mathbf 1}
+\newcommand{\1}{\mathbf 1}
