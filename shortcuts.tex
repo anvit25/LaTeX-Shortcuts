@@ -6,6 +6,7 @@
 \usepackage{mathtools}
 \usepackage{physics2}
 \usephysicsmodule{ab}
+\usephysicsmodule{xmat} %from physics2
 
 % Number sets
 \newcommand{\N}{\mathbb{N}}
@@ -13,7 +14,6 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
-
 
 % Probability shortcuts
 \newcommand{\G}{\mathcal{G}}
@@ -26,7 +26,6 @@
 \DeclareMathOperator{\cov}{\mathbf{C}}
 
 \newcommand{\indep}{\mathbin{\perp \negthickspace\negthickspace \perp}}
-% \newcommand{\eqd}{\overset{\mathcal D}{=}}‌
 \newcommand{\eqd}{\overset{\mathcal{D}}{=}}
 \newcommand{\convd}{\overset{\mathcal D}{\longrightarrow}}
 \newcommand{\convas}{\overset{\textrm{a.s.}}{\longrightarrow}}
@@ -52,12 +51,21 @@
     \IfNoValueF{#2}{^{#2}}%
     \bab{#3\mid #4}
 }
+\NewDocumentCommand{\normal}{e{_}}{
+    \mathcal{N}
+    \IfNoValueF{#1}{_{#1}}
+    \ab
+}
 
 \newcommand{\inner}{\aab}
 \newcommand{\abs}{\vab}
 \newcommand{\norm}{\Vab}
 \newcommand{\argmod}[2]{\underset{#2}{\arg \, #1}}
+\DeclareMathOperator{\traux}{tr}
+\newcommand{\tr}{\traux\ab}
 
 \renewcommand{\O}{\mathcal{O}}
 \newcommand{\I}{\mathbb I}
 \newcommand{\1}{\mathbf 1}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\proj}[1]{#1\ab(#1^\top#1)^{-1}#1^{\top}}
