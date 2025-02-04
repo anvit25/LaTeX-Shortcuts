@@ -69,3 +69,11 @@
 \newcommand{\1}{\mathbf 1}
 \newcommand{\one}{\mathbf{1}}
 \newcommand{\proj}[1]{#1\ab(#1^\top#1)^{-1}#1^{\top}}
+
+
+\DeclareMathOperator{\proxaux}{prox}
+\NewDocumentCommand{\prox}{e{_}}{%
+    \proxaux%
+    \IfNoValueF{#1}{_{#1}}%
+    \ab
+}
